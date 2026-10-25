@@ -1,0 +1,780 @@
+# This is a package-manager setup registry, not an application catalog.
+# URLs are official project pages or official install scripts. System-provided
+# managers do not have a portable installer; their distro owns their lifecycle.
+sources:
+  - id: apt
+    name: APT
+    os: linux
+    description: Debian and Ubuntu system package manager, included with the distribution.
+    homepage: https://salsa.debian.org/apt-team/apt
+    install_page: https://www.debian.org/distrib/
+    installed_check: [apt-get]
+    system_managed: true
+
+  - id: dpkg
+    name: dpkg
+    os: linux
+    description: Debian package format and low-level package manager, included with Debian-based distributions.
+    homepage: https://www.dpkg.org/
+    install_page: https://wiki.debian.org/dpkg
+    installed_check: [dpkg]
+    system_managed: true
+
+  - id: pacman
+    name: Pacman
+    os: linux
+    description: Arch Linux system package manager, supplied by Arch-based distributions.
+    homepage: https://archlinux.org/pacman/
+    install_page: https://archlinux.org/download/
+    installed_check: [pacman]
+    system_managed: true
+
+  - id: flatpak
+    name: Flatpak
+    os: linux
+    description: Linux desktop application framework installed through your distribution.
+    homepage: https://flatpak.org/
+    install_page: https://flatpak.org/setup/
+    installed_check: [flatpak]
+    system_managed: true
+
+  - id: brew
+    name: Homebrew
+    os: [linux, darwin]
+    description: Package manager for macOS and Linux.
+    homepage: https://brew.sh/
+    install_page: https://docs.brew.sh/Installation
+    installed_check: [brew]
+    installers:
+      - os: darwin
+        installer_url: https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+        installer_file: homebrew-install.sh
+        installer_type: bash
+      - os: linux
+        installer_url: https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+        installer_file: homebrew-install.sh
+        installer_type: bash
+
+  - id: winget
+    name: WinGet / App Installer
+    os: windows
+    description: Windows Package Manager CLI distributed as part of Microsoft's App Installer.
+    homepage: https://learn.microsoft.com/en-us/windows/package-manager/winget/
+    install_page: https://apps.microsoft.com/detail/9nblggh4nns1
+    installed_check: [winget]
+    system_managed: true
+
+  - id: choco
+    name: Chocolatey
+    os: windows
+    description: Windows package manager with an official PowerShell bootstrap installer.
+    homepage: https://chocolatey.org/
+    install_page: https://chocolatey.org/install
+    installer_url: https://community.chocolatey.org/install.ps1
+    installer_file: chocolatey-install.ps1
+    installer_type: powershell
+    installed_check: [choco]
+
+  - id: scoop
+    name: Scoop
+    os: windows
+    description: Windows command-line installer with an official PowerShell bootstrap script.
+    homepage: https://scoop.sh/
+    install_page: https://github.com/ScoopInstaller/Install
+    installer_url: https://get.scoop.sh
+    installer_file: scoop-install.ps1
+    installer_type: powershell
+    installed_check: [scoop]
+
+  - id: dnf
+    name: DNF
+    os: linux
+    description: Fedora and related distributions' system package manager.
+    homepage: https://github.com/rpm-software-management/dnf5
+    install_page: https://docs.fedoraproject.org/
+    installed_check: [dnf]
+    system_managed: true
+
+  - id: yum
+    name: YUM
+    os: linux
+    description: Package manager used by older Fedora and RHEL-family distributions.
+    homepage: https://yum.baseurl.org/
+    install_page: https://docs.fedoraproject.org/
+    installed_check: [yum]
+    system_managed: true
+
+  - id: rpm
+    name: RPM
+    os: linux
+    description: RPM package format and package management tools used by Fedora and RHEL-family distributions.
+    homepage: https://rpm.org/
+    install_page: https://rpm.org/documentation.html
+    installed_check: [rpm]
+    system_managed: true
+
+  - id: apk
+    name: APK
+    os: linux
+    description: Alpine Linux system package manager, included with Alpine.
+    homepage: https://wiki.alpinelinux.org/wiki/Alpine_Package_Keeper
+    install_page: https://alpinelinux.org/downloads/
+    installed_check: [apk]
+    system_managed: true
+
+  - id: portage
+    name: Portage (emerge)
+    os: linux
+    description: Gentoo's source-based package management system, included with Gentoo.
+    homepage: https://wiki.gentoo.org/wiki/Portage
+    install_page: https://www.gentoo.org/downloads/
+    installed_check: [emerge]
+    system_managed: true
+
+  - id: zypper
+    name: Zypper
+    os: linux
+    description: openSUSE system package manager, included with the distribution.
+    homepage: https://en.opensuse.org/Portal:Zypper
+    install_page: https://get.opensuse.org/
+    installed_check: [zypper]
+    system_managed: true
+
+  - id: macports
+    name: MacPorts
+    os: darwin
+    description: macOS package manager distributed using OS-version-specific installers.
+    homepage: https://www.macports.org/
+    install_page: https://www.macports.org/install.php
+    installed_check: [port]
+
+  - id: npm
+    name: npm
+    os: any
+    description: JavaScript package manager distributed with Node.js.
+    homepage: https://www.npmjs.com/
+    install_page: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+    installed_check: [npm]
+    requires: [node]
+
+  - id: yarn
+    name: Yarn
+    os: any
+    description: JavaScript package manager for Node.js projects.
+    homepage: https://yarnpkg.com/
+    install_page: https://yarnpkg.com/getting-started/install
+    installed_check: [yarn]
+    requires: [node, npm]
+    installers:
+      - os: [windows, linux, darwin]
+        installer_type: command
+        command: npm
+        args: [install, --global, yarn]
+        requires: [npm]
+
+  - id: pnpm
+    name: pnpm
+    os: any
+    description: Fast, disk-space-efficient package manager for Node.js.
+    homepage: https://pnpm.io/
+    install_page: https://pnpm.io/installation
+    installed_check: [pnpm]
+    installers:
+      - os: [linux, darwin, freebsd]
+        installer_url: https://get.pnpm.io/install.sh
+        installer_file: pnpm-install.sh
+        installer_type: bash
+      - os: windows
+        installer_url: https://get.pnpm.io/install.ps1
+        installer_file: pnpm-install.ps1
+        installer_type: powershell
+
+  - id: bun
+    name: Bun
+    os: any
+    description: JavaScript runtime and package manager.
+    homepage: https://bun.sh/
+    install_page: https://bun.sh/docs/installation
+    installed_check: [bun]
+    installers:
+      - os: [linux, darwin]
+        installer_url: https://bun.sh/install
+        installer_file: bun-install.sh
+        installer_type: bash
+      - os: windows
+        installer_url: https://bun.sh/install.ps1
+        installer_file: bun-install.ps1
+        installer_type: powershell
+
+  - id: pip
+    name: pip
+    os: any
+    description: Python package installer, typically included with Python.
+    homepage: https://pip.pypa.io/
+    install_page: https://pip.pypa.io/en/stable/installation/
+    installed_check: [pip]
+    installers:
+      - os: [windows]
+        installer_type: command
+        command: python
+        args: [-m, ensurepip, --upgrade]
+        requires: [python]
+      - os: [linux, darwin]
+        installer_type: command
+        command: python3
+        args: [-m, ensurepip, --upgrade]
+        requires: [python3]
+
+  - id: uv
+    name: uv
+    os: any
+    description: Python package and project manager.
+    homepage: https://docs.astral.sh/uv/
+    install_page: https://docs.astral.sh/uv/getting-started/installation/
+    installed_check: [uv]
+    installers:
+      - os: [linux, darwin]
+        installer_url: https://astral.sh/uv/install.sh
+        installer_file: uv-install.sh
+        installer_type: bash
+      - os: windows
+        installer_url: https://astral.sh/uv/install.ps1
+        installer_file: uv-install.ps1
+        installer_type: powershell
+
+  - id: poetry
+    name: Poetry
+    os: any
+    description: Python dependency and project manager.
+    homepage: https://python-poetry.org/
+    install_page: https://python-poetry.org/docs/#installation
+    installed_check: [poetry]
+    installers:
+      - os: [windows, linux, darwin]
+        installer_url: https://install.python-poetry.org
+        installer_file: install-poetry.py
+        installer_type: python
+
+  - id: conda
+    name: conda
+    os: any
+    description: Cross-platform package and environment manager, commonly used for Python and data science.
+    homepage: https://conda.io/
+    install_page: https://docs.conda.io/projects/conda/en/latest/user-guide/install/
+    installed_check: [conda]
+    installers:
+      - os: windows
+        installer_type: command
+        command: winget
+        args: [install, --id, Anaconda.Miniconda3, --exact, --accept-package-agreements, --accept-source-agreements]
+        requires: [winget]
+      - os: darwin
+        installer_type: command
+        command: brew
+        args: [install, --cask, miniconda]
+        requires: [brew]
+      - os: linux
+        arch: [x86_64]
+        installer_url: https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+        installer_file: miniconda-installer.sh
+        installer_type: bash
+
+  - id: cargo
+    name: Cargo
+    os: any
+    description: Rust package manager and build tool, distributed with the Rust toolchain.
+    homepage: https://doc.rust-lang.org/cargo/
+    install_page: https://www.rust-lang.org/tools/install
+    installed_check: [cargo]
+    installers:
+      - os: [linux, darwin]
+        installer_url: https://sh.rustup.rs
+        installer_file: rustup-init.sh
+        installer_type: bash
+      - os: windows
+        installer_url: https://win.rustup.rs/x86_64
+        installer_file: rustup-init.exe
+        installer_type: executable
+
+  - id: composer
+    name: Composer
+    os: any
+    description: Dependency manager for PHP.
+    homepage: https://getcomposer.org/
+    install_page: https://getcomposer.org/download/
+    installed_check: [composer]
+    installers:
+      - os: [windows, linux, darwin]
+        installer_url: https://getcomposer.org/installer
+        installer_file: composer-setup.php
+        installer_type: php
+        requires: [php]
+
+  - id: rubygems
+    name: RubyGems
+    os: any
+    description: Ruby's package manager, providing the gem command.
+    homepage: https://rubygems.org/
+    install_page: https://rubygems.org/pages/download
+    installed_check: [gem]
+    requires: [ruby]
+
+  - id: maven
+    name: Apache Maven
+    os: any
+    description: Build automation and dependency management tool for Java projects.
+    homepage: https://maven.apache.org/
+    install_page: https://maven.apache.org/install.html
+    installed_check: [mvn]
+    installers:
+      - os: darwin
+        installer_type: command
+        command: brew
+        args: [install, maven]
+        requires: [brew, java]
+      - os: linux
+        installer_type: command
+        command: brew
+        args: [install, maven]
+        requires: [brew, java]
+      - os: windows
+        installer_type: command
+        command: choco
+        args: [install, maven, -y]
+        requires: [choco, java]
+
+  - id: gradle
+    name: Gradle
+    os: any
+    description: Build automation and dependency management tool for JVM projects.
+    homepage: https://gradle.org/
+    install_page: https://gradle.org/install/
+    installed_check: [gradle]
+    installers:
+      - os: darwin
+        installer_type: command
+        command: brew
+        args: [install, gradle]
+        requires: [brew, java]
+      - os: linux
+        installer_type: command
+        command: brew
+        args: [install, gradle]
+        requires: [brew, java]
+      - os: windows
+        installer_type: command
+        command: choco
+        args: [install, gradle, -y]
+        requires: [choco, java]
+
+  - id: vcpkg
+    name: vcpkg
+    os: [windows, linux, darwin]
+    description: C and C++ dependency manager maintained by Microsoft.
+    homepage: https://github.com/microsoft/vcpkg
+    install_page: https://learn.microsoft.com/en-us/vcpkg/get_started/overview
+    installed_check: [vcpkg]
+
+  - id: conan
+    name: Conan
+    os: any
+    description: C and C++ package manager.
+    homepage: https://conan.io/
+    install_page: https://docs.conan.io/2/installation.html
+    installed_check: [conan]
+    installers:
+      - os: [windows]
+        installer_type: command
+        command: python
+        args: [-m, pip, install, --user, conan]
+        requires: [python, pip]
+      - os: [linux, darwin]
+        installer_type: command
+        command: python3
+        args: [-m, pip, install, --user, conan]
+        requires: [python3, pip]
+
+  - id: go-modules
+    name: Go modules
+    os: any
+    description: Go's built-in dependency management, used with go get and go install.
+    homepage: https://go.dev/
+    install_page: https://go.dev/doc/install
+    installed_check: [go]
+    requires: [go]
+
+  - id: nix
+    name: Nix
+    os: [linux, darwin]
+    description: Declarative package manager designed for reproducible builds across platforms.
+    homepage: https://nixos.org/
+    install_page: https://nixos.org/download/
+    installed_check: [nix]
+    installers:
+      - os: [linux, darwin]
+        installer_url: https://nixos.org/nix/install
+        installer_file: nix-install.sh
+        installer_type: bash
+
+  - id: swift-package-manager
+    name: Swift Package Manager (SPM)
+    os: darwin
+    description: Dependency manager for Swift projects, included with the Swift toolchain.
+    homepage: https://www.swift.org/package-manager/
+    install_page: https://www.swift.org/install/
+    installed_check: [swift]
+    requires: [swift]
+
+  - id: cocoapods
+    name: CocoaPods
+    os: darwin
+    description: Dependency manager for Cocoa and Swift projects.
+    homepage: https://cocoapods.org/
+    install_page: https://guides.cocoapods.org/using/getting-started.html
+    installed_check: [pod]
+    requires: [ruby, gem]
+    installers:
+      - os: darwin
+        installer_type: command
+        command: gem
+        args: [install, cocoapods]
+        requires: [gem]
+
+  - id: carthage
+    name: Carthage
+    os: darwin
+    description: Decentralized dependency manager for Cocoa applications.
+    homepage: https://github.com/Carthage/Carthage
+    install_page: https://github.com/Carthage/Carthage#installing-carthage
+    installed_check: [carthage]
+    installers:
+      - os: darwin
+        installer_type: command
+        command: brew
+        args: [install, carthage]
+        requires: [brew]
+
+  - id: dart-pub
+    name: pub (pub.dev)
+    os: any
+    description: Dart package manager and the pub.dev package ecosystem.
+    homepage: https://pub.dev/
+    install_page: https://dart.dev/tools/pub/install
+    installed_check: [dart]
+    requires: [dart]
+
+  - id: nuget
+    name: NuGet
+    os: any
+    description: .NET package manager, with NuGet client commands included in the .NET SDK.
+    homepage: https://www.nuget.org/
+    install_page: https://learn.microsoft.com/en-us/nuget/install-nuget-client-tools
+    installed_check: [dotnet]
+    requires: [dotnet]
+
+  - id: hex
+    name: Hex
+    os: any
+    description: Package manager and package registry for Elixir and Erlang.
+    homepage: https://hex.pm/
+    install_page: https://hexdocs.pm/hex/Mix.Tasks.Hex.Install.html
+    installed_check: [mix]
+    requires: [mix]
+    installers:
+      - os: [windows, linux, darwin]
+        installer_type: command
+        command: mix
+        args: [local.hex, --force]
+        requires: [mix]
+
+  - id: cabal
+    name: Cabal
+    os: any
+    description: Haskell package and build management tool.
+    homepage: https://www.haskell.org/cabal/
+    install_page: https://www.haskell.org/cabal/download.html
+    installed_check: [cabal]
+    installers:
+      - os: [windows, linux, darwin]
+        installer_type: command
+        command: ghcup
+        args: [install, cabal]
+        requires: [ghcup]
+
+  - id: stack
+    name: Stack
+    os: any
+    description: Haskell project and package manager.
+    homepage: https://docs.haskellstack.org/
+    install_page: https://docs.haskellstack.org/en/stable/install_and_upgrade/
+    installed_check: [stack]
+    installers:
+      - os: [linux, darwin]
+        installer_url: https://get.haskellstack.org/
+        installer_file: stack-install.sh
+        installer_type: bash
+
+  - id: luarocks
+    name: LuaRocks
+    os: [linux, darwin]
+    description: Package manager for the Lua programming language.
+    homepage: https://luarocks.org/
+    install_page: https://github.com/luarocks/luarocks/wiki/Download
+    installed_check: [luarocks]
+    requires: [lua]
+    installers:
+      - os: [linux, darwin]
+        installer_type: command
+        command: brew
+        args: [install, luarocks]
+        requires: [brew, lua]
+
+  - id: cpan
+    name: CPAN
+    os: any
+    description: Perl module archive and package installation ecosystem.
+    homepage: https://www.cpan.org/
+    install_page: https://www.cpan.org/modules/INSTALL.html
+    installed_check: [cpan]
+    requires: [perl]
+
+  - id: cran
+    name: CRAN
+    os: any
+    description: R package repository, accessed with R's package tools.
+    homepage: https://cran.r-project.org/
+    install_page: https://cran.r-project.org/
+    installed_check: [R]
+    requires: [R]
+
+  - id: julia-pkg
+    name: Julia Pkg
+    os: any
+    description: Julia's built-in package manager.
+    homepage: https://pkgdocs.julialang.org/
+    install_page: https://julialang.org/downloads/
+    installed_check: [julia]
+    requires: [julia]
+
+  - id: sbt
+    name: sbt
+    os: any
+    description: Build tool and dependency manager for Scala and Java projects.
+    homepage: https://www.scala-sbt.org/
+    install_page: https://www.scala-sbt.org/1.x/docs/Installing-sbt-on-Windows.html
+    installed_check: [sbt]
+    installers:
+      - os: [windows, linux, darwin]
+        installer_type: command
+        command: cs
+        args: [install, sbt]
+        requires: [cs, java]
+
+  - id: mill
+    name: Mill
+    os: any
+    description: Build tool for Scala, Java, and other JVM projects.
+    homepage: https://mill-build.org/
+    install_page: https://mill-build.org/mill/cli/installation-ide.html
+    installed_check: [mill]
+    installers:
+      - os: [windows, linux, darwin]
+        installer_type: command
+        command: cs
+        args: [install, mill]
+        requires: [cs, java]
+
+  - id: leiningen
+    name: Leiningen
+    os: any
+    description: Clojure project automation and dependency management tool.
+    homepage: https://leiningen.org/
+    install_page: https://leiningen.org/#install
+    installed_check: [lein]
+    requires: [java]
+    installers:
+      - os: [linux, darwin]
+        installer_url: https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+        installer_file: lein.sh
+        installer_type: bash
+        requires: [java]
+
+  - id: clojure-cli
+    name: Clojure CLI (deps.edn)
+    os: any
+    description: Clojure command-line tools for dependency management and project execution.
+    homepage: https://clojure.org/
+    install_page: https://clojure.org/guides/install_clojure
+    installed_check: [clojure]
+    installers:
+      - os: linux
+        installer_url: https://github.com/clojure/brew-install/releases/latest/download/linux-install.sh
+        installer_file: clojure-cli-install.sh
+        installer_type: bash
+
+  - id: opam
+    name: OPAM
+    os: any
+    description: Package manager for OCaml.
+    homepage: https://opam.ocaml.org/
+    install_page: https://opam.ocaml.org/doc/Install.html
+    installed_check: [opam]
+    installers:
+      - os: [linux, darwin]
+        installer_url: https://opam.ocaml.org/install.sh
+        installer_file: opam-install.sh
+        installer_type: bash
+      - os: windows
+        installer_url: https://raw.githubusercontent.com/ocaml/opam/master/shell/install.ps1
+        installer_file: opam-install.ps1
+        installer_type: powershell
+
+  - id: zig
+    name: Zig (zig fetch)
+    os: any
+    description: Zig's built-in package fetching and dependency management tools.
+    homepage: https://ziglang.org/
+    install_page: https://ziglang.org/download/
+    installed_check: [zig]
+    installers:
+      - os: darwin
+        installer_type: command
+        command: brew
+        args: [install, zig]
+        requires: [brew]
+      - os: windows
+        installer_type: command
+        command: winget
+        args: [install, --id, zig.zig, --exact]
+        requires: [winget]
+
+  - id: helm
+    name: Helm
+    os: any
+    description: Package manager for Kubernetes charts.
+    homepage: https://helm.sh/
+    install_page: https://helm.sh/docs/intro/install/
+    installed_check: [helm]
+    installers:
+      - os: [linux, darwin]
+        installer_url: https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4
+        installer_file: helm-install.sh
+        installer_type: bash
+
+  - id: docker-hub
+    name: Docker Hub
+    os: any
+    description: Hosted container image registry; use a compatible container client to access it.
+    homepage: https://hub.docker.com/
+    install_page: https://docs.docker.com/get-started/get-docker/
+    installed_check: [docker]
+
+  - id: ghcr
+    name: GitHub Container Registry
+    os: any
+    description: GitHub-hosted container image registry; use a compatible container client to access it.
+    homepage: https://ghcr.io/
+    install_page: https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
+    installed_check: [docker]
+
+  - id: podman
+    name: Podman
+    os: any
+    description: Daemonless container engine for managing containers and images.
+    homepage: https://podman.io/
+    install_page: https://podman.io/docs/installation
+    installed_check: [podman]
+
+  - id: terraform-registry
+    name: Terraform Registry
+    os: any
+    description: Registry for Terraform providers and modules, used with the Terraform CLI.
+    homepage: https://registry.terraform.io/
+    install_page: https://developer.hashicorp.com/terraform/install
+    installed_check: [terraform]
+
+  - id: snap
+    name: Snap
+    os: linux
+    description: Linux package format and package management system.
+    homepage: https://snapcraft.io/
+    install_page: https://snapcraft.io/docs/installing-snapd
+    installed_check: [snap]
+
+  - id: appimage
+    name: AppImage
+    os: linux
+    description: Portable Linux application packaging format; typically run as downloaded files.
+    homepage: https://appimage.org/
+    install_page: https://docs.appimage.org/introduction/quickstart.html
+
+  - id: freebsd-ports
+    name: FreeBSD Ports
+    os: freebsd
+    description: FreeBSD source-based software collection.
+    homepage: https://www.freebsd.org/ports/
+    install_page: https://docs.freebsd.org/en/books/handbook/ports/
+    installed_check: [make]
+    system_managed: true
+
+  - id: bsd-pkg
+    name: pkg (FreeBSD / DragonFlyBSD)
+    os: [freebsd, dragonfly]
+    description: Binary package manager for FreeBSD and DragonFlyBSD.
+    homepage: https://github.com/freebsd/pkg
+    install_page: https://docs.freebsd.org/en/books/handbook/ports/#pkgng-intro
+    installed_check: [pkg]
+    system_managed: true
+
+  - id: openbsd-pkg-add
+    name: OpenBSD pkg_add
+    os: openbsd
+    description: OpenBSD package installer included with the operating system.
+    homepage: https://www.openbsd.org/
+    install_page: https://www.openbsd.org/faq/faq15.html
+    installed_check: [pkg_add]
+    system_managed: true
+
+  - id: ips
+    name: IPS (Image Packaging System)
+    os: [solaris, illumos]
+    description: Image Packaging System used by Solaris and illumos distributions.
+    homepage: https://www.oracle.com/solaris/
+    install_page: https://docs.oracle.com/cd/E23824_01/html/E21802/index.html
+    installed_check: [pkg]
+    system_managed: true
+
+  - id: pkgsrc
+    name: pkgsrc
+    os: [linux, darwin, freebsd, dragonfly, openbsd, solaris, illumos]
+    description: Portable package management framework originating from NetBSD.
+    homepage: https://www.pkgsrc.org/
+    install_page: https://www.pkgsrc.org/
+    installed_check: [pkgin]
+
+  - id: guix
+    name: GNU Guix
+    os: linux
+    description: Functional package manager supporting reproducible software environments.
+    homepage: https://guix.gnu.org/
+    install_page: https://guix.gnu.org/manual/en/html_node/Installation.html
+    installed_check: [guix]
+    installers:
+      - os: linux
+        installer_url: https://guix.gnu.org/guix-install.sh
+        installer_file: guix-install.sh
+        installer_type: bash
+
+  - id: asdf
+    name: asdf
+    os: any
+    description: Multi-language version manager that installs runtimes through plugins.
+    homepage: https://asdf-vm.com/
+    install_page: https://asdf-vm.com/guide/getting-started.html
+    installed_check: [asdf]
+    installers:
+      - os: [linux, darwin]
+        installer_type: command
+        command: go
+        args: [install, github.com/asdf-vm/asdf/cmd/asdf@latest]
+        requires: [go]

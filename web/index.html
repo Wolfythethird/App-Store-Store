@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="App Store Store, also known as PMM (Package Manager Manager), helps set up package managers across operating systems."
+    >
+    <meta name="theme-color" content="#101311">
+    <title>App Store Store — package managers, in one place</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="App Store Store home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <path d="M20 4.5 34 12.3v15.4L20 35.5 6 27.7V12.3L20 4.5Z" stroke="currentColor" stroke-width="1.7"/>
+            <path d="m13 16 7-4 7 4v8l-7 4-7-4v-8Z" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M20 20v8m0-8 7-4m-7 4-7-4" stroke="currentColor" stroke-width="1.7"/>
+          </svg>
+        </span>
+        <span class="brand-name">app store<span> store</span></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="#features">Why it’s useful</a>
+        <a href="#managers">Managers</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="docs/index.html">Docs</a>
+        <a class="nav-cta" href="downloads.html">Download <span aria-hidden="true">↓</span></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero section-wrap">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse-dot"></span> PMM / PACKAGE MANAGER MANAGER</div>
+          <h1>Package managers.<br><span>All in their place.</span></h1>
+          <p class="hero-lede">
+            App Store Store, also known as PMM (Package Manager Manager), is a
+            calm, cross-platform desktop app for setting up the tools your
+            projects need.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="downloads.html">
+              Download PMM <span aria-hidden="true">↓</span>
+            </a>
+            <a class="button button-quiet" href="#managers">
+              Browse managers <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+          <div class="hero-meta">
+            <span class="platform-pills" aria-label="Supports Windows, macOS, and Linux">
+              <span>Windows</span><span>macOS</span><span>Linux</span>
+            </span>
+            <span class="meta-divider"></span>
+            <span>Native desktop app <span class="meta-dot">·</span> Built with Rust</span>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <figure class="product-shot product-shot-hero">
+            <img
+              src="images/pmm-managers.png"
+              alt="PMM desktop app showing its package manager list and setup details for WinGet"
+              width="1077"
+              height="768"
+              fetchpriority="high"
+            >
+            <figcaption><span class="shot-live-dot"></span> PMM running on Windows <span>REAL APP SCREENSHOT</span></figcaption>
+          </figure>
+          <div class="floating-note note-top"><span class="note-check">✓</span> App Store Store <span class="note-separator">·</span> PMM</div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Product highlights">
+        <div class="trust-strip-inner">
+          <span class="strip-label">A more considered way to set up your tools</span>
+          <span class="strip-item"><span class="strip-symbol">◈</span> Cross-platform</span>
+          <span class="strip-item"><span class="strip-symbol">⌘</span> Built with Rust</span>
+          <span class="strip-item"><span class="strip-symbol">✓</span> Confirm before install</span>
+          <span class="strip-item"><span class="strip-symbol">↗</span> Official sources</span>
+        </div>
+      </section>
+
+      <section class="features section-wrap section-space" id="features">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">A SMALL TOOL WITH A CLEAR JOB</div>
+            <h2>Your package managers,<br>without the scavenger hunt.</h2>
+          </div>
+          <p>
+            Not another app catalog. App Store Store helps you get the
+            <em>package managers themselves</em> ready for your machine.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-icon icon-grid">▦</span>
+            <span class="feature-number">01 / FIND</span>
+            <h3>A useful starting point</h3>
+            <p>Browse system and language package managers from one searchable, OS-aware list.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon icon-window">▣</span>
+            <span class="feature-number">02 / SET UP</span>
+            <h3>Your choice, every time</h3>
+            <p>Review setup details and prerequisites. Installers wait for your confirmation.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon icon-sparkle">✳</span>
+            <span class="feature-number">03 / STAY LIGHT</span>
+            <h3>Only what you need</h3>
+            <p>Platform-aware listings and on-screen status checks keep the interface focused.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="screenshot-showcase section-wrap">
+        <div class="showcase-copy">
+          <div class="eyebrow">A REAL LOOK INSIDE PMM</div>
+          <h2>See what will run.<br><span>Then decide.</span></h2>
+          <p>PMM shows the selected manager and asks before running an installer. You stay in control of setup.</p>
+          <div class="showcase-points">
+            <span><i>✓</i> Choose the manager you need</span>
+            <span><i>✓</i> Review the install confirmation</span>
+            <span><i>✓</i> Cancel whenever you want</span>
+          </div>
+        </div>
+        <figure class="product-shot product-shot-confirm">
+          <img
+            src="images/pmm-install-confirmation.png"
+            alt="PMM showing the Chocolatey installer confirmation dialog with Cancel and Run installer options"
+            width="1087"
+            height="768"
+            loading="lazy"
+          >
+          <figcaption><span class="shot-live-dot"></span> Installer confirmation <span>REAL APP SCREENSHOT</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="catalog-section" id="managers">
+        <div class="section-wrap catalog-wrap">
+          <div class="section-heading catalog-heading">
+            <div>
+              <div class="eyebrow">ONE TOOL, MANY ECOSYSTEMS</div>
+              <h2>Meet your next<br>package manager.</h2>
+            </div>
+            <p>See a few of the managers in the registry. What’s available depends on your operating system and setup.</p>
+          </div>
+          <div class="catalog-toolbar">
+            <div class="catalog-tabs" role="group" aria-label="Filter package managers">
+              <button class="filter-tab is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+              <button class="filter-tab" type="button" data-filter="system" aria-pressed="false">System</button>
+              <button class="filter-tab" type="button" data-filter="languages" aria-pressed="false">Languages</button>
+              <button class="filter-tab" type="button" data-filter="tools" aria-pressed="false">Developer tools</button>
+            </div>
+            <label class="catalog-search">
+              <span aria-hidden="true">⌕</span>
+              <input type="search" id="manager-search" placeholder="Find a manager" autocomplete="off">
+            </label>
+          </div>
+          <div class="catalog-grid" id="catalog-grid">
+            <article class="catalog-card" data-category="system" data-name="winget windows package manager">
+              <div class="catalog-card-top"><span class="manager-icon icon-winget">W</span><span class="category-tag">WINDOWS</span></div>
+              <h3>WinGet</h3><p>Windows’ command-line package manager.</p><span class="catalog-card-foot">System manager <span>↗</span></span>
+            </article>
+            <article class="catalog-card" data-category="system" data-name="homebrew brew macos linux">
+              <div class="catalog-card-top"><span class="manager-icon icon-brew">B</span><span class="category-tag">MACOS · LINUX</span></div>
+              <h3>Homebrew</h3><p>Install the tools you need on macOS and Linux.</p><span class="catalog-card-foot">System manager <span>↗</span></span>
+            </article>
+            <article class="catalog-card" data-category="system" data-name="apt debian ubuntu linux">
+              <div class="catalog-card-top"><span class="manager-icon icon-apt">A</span><span class="category-tag">LINUX</span></div>
+              <h3>APT</h3><p>The familiar package manager for Debian-based systems.</p><span class="catalog-card-foot">System manager <span>↗</span></span>
+            </article>
+            <article class="catalog-card" data-category="languages" data-name="npm node javascript">
+              <div class="catalog-card-top"><span class="manager-icon icon-npm">n</span><span class="category-tag">JAVASCRIPT</span></div>
+              <h3>npm</h3><p>Discover packages for the Node.js ecosystem.</p><span class="catalog-card-foot">Requires Node.js <span>↗</span></span>
+            </article>
+            <article class="catalog-card" data-category="languages" data-name="cargo rust">
+              <div class="catalog-card-top"><span class="manager-icon icon-cargo">⚙</span><span class="category-tag">RUST</span></div>
+              <h3>Cargo</h3><p>Build, manage, and share Rust packages.</p><span class="catalog-card-foot">Rust toolchain <span>↗</span></span>
+            </article>
+            <article class="catalog-card" data-category="languages" data-name="uv python">
+              <div class="catalog-card-top"><span class="manager-icon icon-py">Py</span><span class="category-tag">PYTHON</span></div>
+              <h3>uv</h3><p>A fast Python package and project manager.</p><span class="catalog-card-foot">Download available <span>↗</span></span>
+            </article>
+            <article class="catalog-card" data-category="tools" data-name="docker container images">
+              <div class="catalog-card-top"><span class="manager-icon icon-docker">◈</span><span class="category-tag">CONTAINERS</span></div>
+              <h3>Docker</h3><p>Build and manage containers for your projects.</p><span class="catalog-card-foot">Setup guide <span>↗</span></span>
+            </article>
+            <article class="catalog-card" data-category="tools" data-name="helm kubernetes">
+              <div class="catalog-card-top"><span class="manager-icon icon-helm">⌘</span><span class="category-tag">KUBERNETES</span></div>
+              <h3>Helm</h3><p>Manage Kubernetes applications with charts.</p><span class="catalog-card-foot">Download available <span>↗</span></span>
+            </article>
+          </div>
+          <p class="catalog-empty" id="catalog-empty" hidden>No managers found. Try a different search.</p>
+          <p class="catalog-caption">Examples from the registry. Availability and install methods vary by OS.</p>
+        </div>
+      </section>
+
+      <section class="how-section section-wrap section-space" id="how-it-works">
+        <div class="how-copy">
+          <div class="eyebrow">STRAIGHTFORWARD BY DESIGN</div>
+          <h2>From “I need that”<br>to ready to go.</h2>
+          <p>Browse what fits your system, check the prerequisites, and choose how to proceed.</p>
+          <a class="text-link" href="#get-started">See how to get started <span>↗</span></a>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <span class="step-index">01</span>
+            <div><h3>Find a manager</h3><p>Search a curated list filtered for your operating system.</p></div>
+            <span class="step-mark">⌕</span>
+          </article>
+          <article class="step">
+            <span class="step-index">02</span>
+            <div><h3>Review the details</h3><p>See official setup links and any runtime prerequisites.</p></div>
+            <span class="step-mark">↗</span>
+          </article>
+          <article class="step">
+            <span class="step-index">03</span>
+            <div><h3>Confirm before installing</h3><p>Nothing runs until you choose to continue.</p></div>
+            <span class="step-mark">✓</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="start-section" id="get-started">
+        <div class="start-orb"></div>
+        <div class="section-wrap start-inner">
+          <div class="eyebrow">READY WHEN YOU ARE</div>
+          <h2>Get your tools<br><span>in the right place.</span></h2>
+          <p>Build the native desktop app with Rust. No account, cloud service, or web installer required.</p>
+          <div class="terminal-card">
+            <div class="terminal-top"><span><i></i><i></i><i></i></span><span>YOUR TERMINAL</span><button type="button" class="copy-button" data-copy="cargo run" aria-label="Copy cargo run command">COPY</button></div>
+            <code><span class="terminal-prompt">$</span> cargo run</code>
+          </div>
+          <div class="start-notes">
+            <span><span class="note-check">✓</span> Install Rust with rustup</span>
+            <span><span class="note-check">✓</span> Use <code>cargo run -- --tui</code> for the terminal UI</span>
+          </div>
+          <a class="text-link" href="downloads.html">Go to PMM downloads <span>↗</span></a>
+          <p class="safety-copy">Installer scripts can change your system. Review them, check their official instructions, and only run installers you trust.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-main section-wrap">
+        <a class="brand footer-brand" href="#" aria-label="App Store Store home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none">
+              <path d="M20 4.5 34 12.3v15.4L20 35.5 6 27.7V12.3L20 4.5Z" stroke="currentColor" stroke-width="1.7"/>
+              <path d="m13 16 7-4 7 4v8l-7 4-7-4v-8Z" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M20 20v8m0-8 7-4m-7 4-7-4" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+          </span>
+          <span class="brand-name">app store<span> store</span></span>
+        </a>
+        <p>A tidy home for the tools that install your tools.</p>
+        <a class="footer-top" href="#">Back to top ↑</a>
+      </div>
+      <div class="footer-bottom section-wrap">
+        <span>© <span id="year"></span> App Store Store</span>
+        <span>Built with Rust <span class="meta-dot">·</span> Made for curious developers</span>
+      </div>
+    </footer>
+  </body>
+</html>

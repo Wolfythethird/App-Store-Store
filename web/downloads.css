@@ -1,0 +1,30 @@
+.download-page { min-height: calc(100vh - 130px); }
+.download-hero { padding-block: 86px 42px; text-align: center; }
+.download-hero .eyebrow { justify-content: center; }
+.download-hero h1 { margin-block: 18px 13px; font-size: clamp(42px, 6vw, 64px); letter-spacing: -3.5px; }
+.download-hero h1 span { color: var(--green); }
+.download-hero > p { max-width: 560px; margin: 0 auto; color: var(--muted); font-size: 15px; line-height: 1.8; }
+.release-card { display: grid; width: min(690px, 100%); grid-template-columns: auto 1fr; gap: 20px; margin: 0 auto 90px; padding: 25px; border: 1px solid var(--line-strong); border-radius: 11px; background: linear-gradient(140deg, rgba(180,237,114,.045), transparent 45%), #151916; box-shadow: 0 22px 70px rgba(0,0,0,.22); }
+.release-icon { display: grid; width: 56px; height: 56px; place-items: center; border: 1px solid rgba(180,237,114,.25); border-radius: 12px; background: rgba(180,237,114,.08); color: var(--green); font-size: 26px; }
+.release-main { min-width: 0; }
+.release-kicker { color: var(--green); font-family: var(--mono); font-size: 9px; letter-spacing: 1px; }
+.release-main h2 { margin: 5px 0 4px; font-family: var(--display); font-size: 22px; letter-spacing: -.8px; }
+.release-main > p { margin: 0; color: #9da79b; font-size: 12px; line-height: 1.75; }
+.release-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+.release-tags span { padding: 4px 7px; border: 1px solid var(--line); border-radius: 4px; color: #aeb7a9; font-family: var(--mono); font-size: 8px; }
+.release-actions { display: flex; grid-column: 2; flex-wrap: wrap; align-items: center; gap: 12px; }
+.release-actions .button { min-height: 43px; }
+.release-filename { color: #a3ad9f; font-family: var(--mono); font-size: 10px; }
+.release-note { grid-column: 1 / -1; margin: 0; padding-top: 15px; border-top: 1px solid var(--line); color: #7f8b7c; font-size: 10px; line-height: 1.7; }
+.release-note a { color: var(--green); }
+.download-back { display: inline-flex; gap: 8px; margin-top: 20px; color: #abb6a6; font-size: 11px; }
+.download-back:hover { color: var(--green); }
+@media (max-width: 720px) {
+  .download-hero { padding-block: 60px 32px; }
+  .download-hero h1 { font-size: 46px; letter-spacing: -2.5px; }
+  .release-card { grid-template-columns: auto 1fr; gap: 13px; margin-bottom: 65px; padding: 17px; }
+  .release-icon { width: 44px; height: 44px; font-size: 20px; }
+  .release-main h2 { font-size: 18px; }
+  .release-actions { grid-column: 1 / -1; }
+  .release-note { grid-column: 1 / -1; }
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Add a local custom installer to App Store Store with a YAML plugin manifest and script.">
+    <meta name="theme-color" content="#101311"><title>Local plugins — App Store Store Docs</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="docs.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to documentation</a>
+    <header class="site-header"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 4.5 34 12.3v15.4L20 35.5 6 27.7V12.3L20 4.5Z" stroke="currentColor" stroke-width="1.7"/><path d="m13 16 7-4 7 4v8l-7 4-7-4v-8Z" stroke="currentColor" stroke-width="1.7"/><path d="M20 20v8m0-8 7-4m-7 4-7-4" stroke="currentColor" stroke-width="1.7"/></svg></span><span class="brand-name">app store<span> store</span></span></a><nav class="site-nav" aria-label="Main navigation"><a href="../index.html#features">Why it’s useful</a><a href="../index.html#managers">Managers</a><a href="../index.html#how-it-works">How it works</a><a href="index.html" aria-current="page">Docs</a><a class="nav-cta" href="../index.html#get-started">Get started <span>↗</span></a></nav></header>
+    <main id="main" class="docs-shell"><div class="section-wrap">
+      <div class="docs-breadcrumb"><a href="index.html">Docs</a><span>/</span>Local installer plugins</div>
+      <div class="docs-hero"><div class="eyebrow">DOCUMENTATION / EXTEND</div><h1>Local installer plugins.</h1><p>Add a manager or setup helper that is not in the built-in registry using a YAML manifest and an optional local script.</p></div>
+      <div class="docs-layout">
+        <aside class="docs-sidebar"><div class="docs-sidebar-label">DOCUMENTATION</div><nav aria-label="Documentation"><a href="index.html">Overview</a><a href="getting-started.html">Getting started</a><a href="managers.html">Manager guide</a><a href="plugins.html" aria-current="page">Local plugins</a><a href="safety.html">Safety &amp; privacy</a></nav></aside>
+        <article class="docs-article">
+          <section><h2>1. Create the plugin directory</h2><p>By default, put a YAML manifest and any script in <code>~/.app_store_store/plugins/</code>. On Windows the default is <code>%USERPROFILE%\.app_store_store\plugins\</code>. Override the location with <code>APP_STORE_PLUGINS</code> or <code>--plugins-dir PATH</code>.</p><p>Manifest files must end in <code>.yaml</code> or <code>.yml</code>. A script must use a relative path and stay inside the plugin directory.</p></section>
+          <section><h2>2. Add a manifest and script</h2><p>This example defines a Windows-only PowerShell plugin. Save it as <code>example-manager.yml</code> and place <code>install.ps1</code> next to it:</p><pre><code>id: example-manager
+name: Example Manager
+os: windows
+description: Example package manager installed by a local script.
+homepage: https://example.org/
+install_page: https://example.org/install
+installer_type: powershell
+plugin_script: install.ps1
+installed_check: [example-manager]
+requires: [powershell]</code></pre><p>Allowed local script types are <code>.sh</code> with <code>bash</code>, <code>.ps1</code> with <code>powershell</code>, and <code>.py</code> with <code>python</code>. The script must exist and have an extension matching the declared type.</p></section>
+          <section><h2>3. Configure operating-system profiles</h2><p>For an installer downloaded from an official HTTPS location, specify its URL, local filename, and runner instead of <code>plugin_script</code>:</p><pre><code>installer_url: https://example.org/install.sh
+installer_file: install.sh
+installer_type: bash</code></pre><p>For platform-specific installers, use an <code>installers</code> list. Each profile has an <code>os</code> value or list. An optional <code>arch</code> list limits a profile to Rust architecture names such as <code>x86_64</code> or <code>aarch64</code>.</p><pre><code>installers:
+  - os: [linux, darwin]
+    installer_url: https://example.org/install.sh
+    installer_file: install.sh
+    installer_type: bash
+  - os: windows
+    installer_url: https://example.org/install.ps1
+    installer_file: install.ps1
+    installer_type: powershell</code></pre><p>Supported downloaded installer types include Bash, PowerShell, Python, PHP, and executable installers. Command profiles run an already-installed executable with fixed arguments and declared prerequisites; see the existing registry for examples.</p></section>
+          <section><h2>4. Validate and use it</h2><p>Run the app and confirm the manager appears on the OS you declared:</p><pre><code>cargo run -- --list
+cargo run -- --plugins-dir PATH --list</code></pre><p>Select a local script entry in the GUI or TUI to run it after confirmation. A downloaded installer must be downloaded before it can be run. A plugin that only supplies an official setup page should instead use that link in the built-in registry; plugin manifests must provide a script or installer.</p></section>
+          <section><h2>Important plugin safety</h2><div class="docs-callout warning"><p><strong>Plugin scripts are not sandboxed.</strong> They run as your user and may change files, install software, or invoke other commands. Use only scripts you wrote or reviewed and trust. Confirmation is a prompt—not a security boundary.</p></div><p>Script path canonicalization prevents a plugin manifest from pointing outside the configured plugin directory. It does not make the script itself safe.</p><p>For more, read <a href="safety.html">Safety &amp; privacy</a>.</p></section>
+          <div class="docs-next"><a href="managers.html"><small>BACK</small><strong><span>←</span> Manager guide</strong></a><a href="safety.html"><small>UP NEXT</small><strong>Safety &amp; privacy <span>→</span></strong></a></div>
+        </article>
+      </div>
+    </div></main>
+    <footer class="site-footer"><div class="footer-main section-wrap"><a class="brand footer-brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 4.5 34 12.3v15.4L20 35.5 6 27.7V12.3L20 4.5Z" stroke="currentColor" stroke-width="1.7"/><path d="m13 16 7-4 7 4v8l-7 4-7-4v-8Z" stroke="currentColor" stroke-width="1.7"/><path d="M20 20v8m0-8 7-4m-7 4-7-4" stroke="currentColor" stroke-width="1.7"/></svg></span><span class="brand-name">app store<span> store</span></span></a><p>A tidy home for the tools that install your tools.</p><a class="footer-top" href="#">Back to top ↑</a></div><div class="footer-bottom section-wrap"><span>App Store Store documentation</span><a href="../index.html">Return to website <span class="meta-dot">↗</span></a></div></footer>
+  </body>
+</html>

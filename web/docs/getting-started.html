@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Build App Store Store and use its desktop GUI, terminal interface, and command-line options.">
+    <meta name="theme-color" content="#101311">
+    <title>Getting started — App Store Store Docs</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="docs.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to documentation</a>
+    <header class="site-header"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 4.5 34 12.3v15.4L20 35.5 6 27.7V12.3L20 4.5Z" stroke="currentColor" stroke-width="1.7"/><path d="m13 16 7-4 7 4v8l-7 4-7-4v-8Z" stroke="currentColor" stroke-width="1.7"/><path d="M20 20v8m0-8 7-4m-7 4-7-4" stroke="currentColor" stroke-width="1.7"/></svg></span><span class="brand-name">app store<span> store</span></span></a><nav class="site-nav" aria-label="Main navigation"><a href="../index.html#features">Why it’s useful</a><a href="../index.html#managers">Managers</a><a href="../index.html#how-it-works">How it works</a><a href="index.html" aria-current="page">Docs</a><a class="nav-cta" href="../index.html#get-started">Get started <span>↗</span></a></nav></header>
+    <main id="main" class="docs-shell"><div class="section-wrap">
+      <div class="docs-breadcrumb"><a href="index.html">Docs</a><span>/</span>Getting started</div>
+      <div class="docs-hero"><div class="eyebrow">DOCUMENTATION / FIRST RUN</div><h1>Getting started.</h1><p>Build the native app, choose an interface, and find a setup path for a package manager.</p></div>
+      <div class="docs-layout">
+        <aside class="docs-sidebar"><div class="docs-sidebar-label">DOCUMENTATION</div><nav aria-label="Documentation"><a href="index.html">Overview</a><a href="getting-started.html" aria-current="page">Getting started</a><a href="managers.html">Manager guide</a><a href="plugins.html">Local plugins</a><a href="safety.html">Safety &amp; privacy</a></nav></aside>
+        <article class="docs-article">
+          <section id="build"><h2>1. Build and run</h2><p>Install the Rust toolchain using <a href="https://rustup.rs/" target="_blank" rel="noopener noreferrer">rustup</a>, then run these commands from the project folder:</p><pre><code>cargo build --release
+cargo run</code></pre><p>Running <code>cargo run</code> opens the native desktop GUI. For repeated use, build the release executable with <code>cargo build --release</code>.</p></section>
+          <section id="gui"><h2>2. Use the desktop GUI</h2><ol><li>Search or browse the managers available for your current operating system.</li><li>Select a manager to read its description, prerequisites, and official setup links.</li><li>Choose <strong>Download installer</strong> when a downloadable installer is configured.</li><li>Choose <strong>Install / set up</strong>. The app asks you to confirm before it runs an installer.</li><li>Use <strong>Open official page</strong> to view the manager’s setup instructions in your browser.</li></ol><div class="docs-callout"><p><strong>Download first when needed.</strong> Downloaded installers must exist locally before the app can run them. A command-based installer or local plugin may not need a separate download.</p></div></section>
+          <section id="tui"><h2>3. Use the terminal UI</h2><p>Start the keyboard-driven interface with:</p><pre><code>cargo run -- --tui</code></pre><div class="docs-table-wrap"><table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody><tr><td>↑ / ↓ or j / k</td><td>Select a manager</td></tr><tr><td>d</td><td>Download a standalone installer, when available</td></tr><tr><td>i</td><td>Install or set up; confirm downloaded installers when prompted</td></tr><tr><td>o</td><td>Open the official setup page</td></tr><tr><td>q / Esc</td><td>Quit</td></tr><tr><td>y / n</td><td>Confirm or cancel a pending install</td></tr></tbody></table></div></section>
+          <section id="cli"><h2>4. Use the command line</h2><p>List managers available on this system or work with one manager by its registry ID:</p><pre><code># List managers available on this operating system
+cargo run -- --list
+
+# Download the configured installer for a manager
+cargo run -- --download brew
+
+# Install after an interactive confirmation
+cargo run -- --install brew
+
+# Skip the prompt for this explicitly selected manager
+cargo run -- --install brew --yes</code></pre><p>Replace <code>brew</code> with an ID from the manager list. <code>--yes</code> applies to the one explicitly named installation; it does not install apps from a package-manager catalog.</p></section>
+          <section id="configuration"><h2>Registry and plugin paths</h2><p>Defaults can be overridden with flags or environment variables:</p><div class="docs-table-wrap"><table><thead><tr><th>Purpose</th><th>Flag</th><th>Environment variable</th></tr></thead><tbody><tr><td>Manager registry</td><td><code>--sources-file PATH</code></td><td><code>APP_STORE_SOURCES</code></td></tr><tr><td>Plugin directory</td><td><code>--plugins-dir DIR</code></td><td><code>APP_STORE_PLUGINS</code></td></tr><tr><td>Installer downloads</td><td>—</td><td><code>APP_STORE_DOWNLOADS</code></td></tr></tbody></table></div><p>Use <a href="plugins.html">Local installer plugins</a> to learn how to add a custom entry.</p></section>
+          <div class="docs-next"><a href="index.html"><small>BACK</small><strong><span>←</span> Documentation overview</strong></a><a href="managers.html"><small>UP NEXT</small><strong>Manager guide <span>→</span></strong></a></div>
+        </article>
+      </div>
+    </div></main>
+    <footer class="site-footer"><div class="footer-main section-wrap"><a class="brand footer-brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 4.5 34 12.3v15.4L20 35.5 6 27.7V12.3L20 4.5Z" stroke="currentColor" stroke-width="1.7"/><path d="m13 16 7-4 7 4v8l-7 4-7-4v-8Z" stroke="currentColor" stroke-width="1.7"/><path d="M20 20v8m0-8 7-4m-7 4-7-4" stroke="currentColor" stroke-width="1.7"/></svg></span><span class="brand-name">app store<span> store</span></span></a><p>A tidy home for the tools that install your tools.</p><a class="footer-top" href="#">Back to top ↑</a></div><div class="footer-bottom section-wrap"><span>App Store Store documentation</span><a href="../index.html">Return to website <span class="meta-dot">↗</span></a></div></footer>
+  </body>
+</html>

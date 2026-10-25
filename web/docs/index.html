@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Documentation for App Store Store: setup, manager support, local plugins, and installer safety.">
+    <meta name="theme-color" content="#101311">
+    <title>Documentation — App Store Store</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="docs.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to documentation</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="App Store Store home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 4.5 34 12.3v15.4L20 35.5 6 27.7V12.3L20 4.5Z" stroke="currentColor" stroke-width="1.7"/><path d="m13 16 7-4 7 4v8l-7 4-7-4v-8Z" stroke="currentColor" stroke-width="1.7"/><path d="M20 20v8m0-8 7-4m-7 4-7-4" stroke="currentColor" stroke-width="1.7"/></svg></span>
+        <span class="brand-name">app store<span> store</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../index.html#features">Why it’s useful</a>
+        <a href="../index.html#managers">Managers</a>
+        <a href="../index.html#how-it-works">How it works</a>
+        <a href="index.html" aria-current="page">Docs</a>
+        <a class="nav-cta" href="getting-started.html">Get started <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main" class="docs-shell">
+      <div class="section-wrap">
+        <div class="docs-hero">
+          <div class="eyebrow"><span class="pulse-dot"></span> APP STORE STORE / DOCUMENTATION</div>
+          <h1>A practical guide<br><span>to getting set up.</span></h1>
+          <p>Learn how to run the app, choose a package manager, add a local installer plugin, and understand what happens when an installer runs.</p>
+        </div>
+        <div class="docs-layout">
+          <aside class="docs-sidebar">
+            <div class="docs-sidebar-label">DOCUMENTATION</div>
+            <nav aria-label="Documentation">
+              <a href="index.html" aria-current="page">Overview</a>
+              <a href="getting-started.html">Getting started</a>
+              <a href="managers.html">Manager guide</a>
+              <a href="plugins.html">Local plugins</a>
+              <a href="safety.html">Safety &amp; privacy</a>
+            </nav>
+          </aside>
+          <article class="docs-article">
+            <section>
+              <h2>What does App Store Store do?</h2>
+              <p>App Store Store helps you find and set up <strong>package managers</strong>—the tools that install and maintain other software. It is not an app catalog and does not install applications from those managers’ catalogs.</p>
+              <p>The app’s short name is <strong>PMM</strong>, meaning <strong>Package Manager Manager</strong>; its primary name remains App Store Store. Written in Rust, it offers a dark desktop interface, a terminal UI, and command-line options.</p>
+              <div class="docs-callout"><p><strong>In short:</strong> this app helps you set up a tool such as Homebrew, Cargo, or npm. You then use that package manager to install the software you need.</p></div>
+            </section>
+            <section>
+              <h2>Choose a guide</h2>
+              <div class="docs-card-grid">
+                <a class="docs-card" href="getting-started.html"><small>01 / FIRST RUN</small><strong>Getting started</strong><span>Build the app and learn the GUI, terminal, and CLI workflows.</span></a>
+                <a class="docs-card" href="managers.html"><small>02 / REGISTRY</small><strong>Manager guide</strong><span>Understand OS filtering, prerequisites, and installation methods.</span></a>
+                <a class="docs-card" href="plugins.html"><small>03 / EXTEND</small><strong>Local installer plugins</strong><span>Describe a local script or official download with a YAML manifest.</span></a>
+                <a class="docs-card" href="safety.html"><small>04 / BEFORE YOU INSTALL</small><strong>Safety &amp; privacy</strong><span>Know what the app checks, downloads, and runs on your machine.</span></a>
+              </div>
+            </section>
+            <section>
+              <h2>At a glance</h2>
+              <div class="docs-table-wrap"><table>
+                <thead><tr><th>Need</th><th>Use</th></tr></thead>
+                <tbody>
+                  <tr><td>Open the desktop app</td><td><code>cargo run</code></td></tr>
+                  <tr><td>Open the terminal interface</td><td><code>cargo run -- --tui</code></td></tr>
+                  <tr><td>List available managers</td><td><code>cargo run -- --list</code></td></tr>
+                  <tr><td>Use a manager from the terminal</td><td><a href="getting-started.html#cli">CLI guide</a></td></tr>
+                  <tr><td>Add your own installer entry</td><td><a href="plugins.html">Plugin guide</a></td></tr>
+                </tbody>
+              </table></div>
+            </section>
+            <section>
+              <h2>Project links</h2>
+              <p>Manager entries and platform profiles are defined in the project’s <code>sources.list</code>. The project README covers building, tests, and registry details.</p>
+              <a class="docs-inline-link" href="../index.html">Back to the website <span>↗</span></a>
+            </section>
+            <div class="docs-next"><a href="getting-started.html"><small>UP NEXT</small><strong>Getting started <span>→</span></strong></a></div>
+          </article>
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-main section-wrap">
+        <a class="brand footer-brand" href="../index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 4.5 34 12.3v15.4L20 35.5 6 27.7V12.3L20 4.5Z" stroke="currentColor" stroke-width="1.7"/><path d="m13 16 7-4 7 4v8l-7 4-7-4v-8Z" stroke="currentColor" stroke-width="1.7"/><path d="M20 20v8m0-8 7-4m-7 4-7-4" stroke="currentColor" stroke-width="1.7"/></svg></span><span class="brand-name">app store<span> store</span></span></a>
+        <p>A tidy home for the tools that install your tools.</p><a class="footer-top" href="#">Back to top ↑</a>
+      </div>
+      <div class="footer-bottom section-wrap"><span>App Store Store documentation</span><a href="../index.html">Return to website <span class="meta-dot">↗</span></a></div>
+    </footer>
+  </body>
+</html>
